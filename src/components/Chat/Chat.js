@@ -7,13 +7,12 @@ import Input from "../Input/Input";
 import Messages from "../Messages/Messages";
 import TextC from "../TextC/TextC";
 
-
 let socket;
 
 const Chat = ({ location }) => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
-  const [users, setUsers] = useState('');
+  const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const ENDPOINT = "https://chat-app-socket-avinash.herokuapp.com/";
@@ -34,8 +33,8 @@ const Chat = ({ location }) => {
       setMessages([...messages, message]);
     });
     socket.on("roomData", ({ users }) => {
-        setUsers(users);
-      });
+      setUsers(users);
+    });
   }, [messages]);
 
   const sendMessage = (e) => {
@@ -46,7 +45,6 @@ const Chat = ({ location }) => {
       });
     }
   };
-
 
   return (
     <div className="outerContainer">
